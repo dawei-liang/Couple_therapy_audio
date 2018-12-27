@@ -162,6 +162,6 @@ class vggish:
     def run(self):
       tf.reset_default_graph()
       tf.app.run(self.vggish_main())
-      tf.Session.close()
+      tf.Session.close() 
 
 
