@@ -27,8 +27,8 @@ class csv_converter:
     
     def transform(self):
         for example in tf.python_io.tf_record_iterator(self.audio_record):
-            tf_example = tf.train.Example.FromString(example)
-            print(tf_example)
+        #    tf_example = tf.train.Example.FromString(example)
+        #    print(tf_example)
         #    vid_ids.append(tf_example.features.feature['video_id'].bytes_list.value[0].decode(encoding='UTF-8'))
         #    labels.append(tf_example.features.feature['labels'].int64_list.value)
         #    start_time_seconds.append(tf_example.features.feature['start_time_seconds'].float_list.value)
@@ -59,6 +59,8 @@ class csv_converter:
             
         print(each_row)
         #print(feat_audio)
+        tf.reset_default_graph()
+        sess.close()
         
         with open(self.save_dir + '.csv','w') as f:
             wr = csv.writer(f,lineterminator='\n')
